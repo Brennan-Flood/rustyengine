@@ -71,7 +71,7 @@ pub fn set_event_handler(function: impl FnMut(&mut Context, Event) + 'static) {
         event_handler_and_context.borrow_mut().0 = Box::new(function);
     });
 }
-
+// Event handler for events passed from js/webgl
 fn send_event(event: Event) {
     EVENT_HANDLER_AND_CONTEXT.with(|event_handler_and_context| {
         let mut borrow = event_handler_and_context.borrow_mut();
